@@ -1,10 +1,9 @@
 import { WebSocketServer } from "ws";
 import { ChessManager } from "./ChessManager.js";
 
-const wss = new WebSocketServer({ port: 8080 });
+const wss = new WebSocketServer({ port: process.env.PORT || 8080 });
 const chessController = new ChessManager();
 
-console.log('WebSocket server is running on ws://localhost:8080');
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
